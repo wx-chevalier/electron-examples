@@ -2,9 +2,8 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "moduleResolution": "node",
+    "paths": {}
   },
   "include": ["src/**/*"]
 }

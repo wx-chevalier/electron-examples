@@ -32,15 +32,13 @@ cd folder-containing-the-cloned-boilerplate
 npm install
 ```
 
-Finally execute the following command to start Webpack in development mode and
-watch the changes on source files for live rebuild on code changes.
+Finally execute the following command to start Webpack in development mode and watch the changes on source files for live rebuild on code changes.
 
 ```sh
 npm run dev
 ```
 
-The `npm run dev` command won't start your app and get your app shows on the
-screen. To start your app, execute the following command:
+The `npm run dev` command won't start your app and get your app shows on the screen. To start your app, execute the following command:
 
 ```sh
 npm start
