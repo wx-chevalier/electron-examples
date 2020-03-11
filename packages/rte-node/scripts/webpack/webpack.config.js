@@ -4,10 +4,10 @@ const merge = require('webpack-merge');
 
 const config = merge(
   require('@wx-fc/webpack-config/webpack.config.node')({
-    rootPath: path.resolve(__dirname, './'),
+    rootPath: path.resolve(__dirname, '../../'),
   }),
   {
-    target: 'electron',
+    target: 'electron-main',
     plugins: [
       new CopyPkgJsonPlugin({
         remove: ['scripts', 'devDependencies', 'build'],
