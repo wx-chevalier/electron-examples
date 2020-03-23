@@ -1,62 +1,29 @@
-/**
- * Entry point of the Election app.
- */
-import { BrowserWindow, app } from 'electron';
-import * as path from 'path';
-import * as url from 'url';
+/* eslint-disable @typescript-eslint/no-var-requires */
 
-let mainWindow: Electron.BrowserWindow | null;
+import { app } from 'electron';
+import log from 'electron-log';
 
-function createWindow(): void {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({
-    height: 600,
-    width: 800,
-    webPreferences: {
-      webSecurity: false,
-      devTools: process.env.NODE_ENV === 'production' ? false : true,
-    },
-  });
+import * as R from 'rte-core';
 
-  // and load the index.html of the app.
-  mainWindow.loadURL(
-    url.format({
-      pathname: path.join(__dirname, './index.html'),
-      protocol: 'file:',
-      slashes: true,
-    }),
-  );
+import { AppManager } from './AppManager';
 
-  // Emitted when the window is closed.
-  mainWindow.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    mainWindow = null;
-  });
+if (process.env.NODE_ENV !== 'production') {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  require('electron-debug')({ showDevTools: true });
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
-
-// Quit when all windows are closed.
-app.on('window-all-closed', () => {
-  // On OS X it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
+process.on('uncaughtException', error => {
+  // Handle the error
+  log.error(error);
 });
 
-app.on('activate', () => {
-  // On OS X it"s common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (mainWindow === null) {
-    createWindow();
-  }
-});
+declare const global: {
+  searchLocation: R.searchLocationFunc;
+  run: R.runFunc;
+  download: R.downloadFunc;
+};
 
-// In this file you can include the rest of your app"s specific main process
-// code. You can also put them in separate files and require them here.
+const url =
+  process.env.ELECTRON_START_URL || `file://${__dirname}/../build/index.html`;
+const appManager = new AppManager(app, url);
+appManager.initApp();

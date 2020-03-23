@@ -20,7 +20,9 @@ $ yarn global add npm-check-updates npm-run-all copyfiles cross-env
 # 为各个子项目安装依赖，以及链接各个子项目
 $ ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ ELECTRON_CUSTOM_DIR=8.1.1 yarn install --registry https://registry.npm.taobao.org/
 
-# 执行预编译操作
+# 启用 Web App & Node 的开发服务器
+$ yarn run dev
+# 打开 Electron 应用
 $ yarn start
 
 # 执行 Lint 操作
@@ -28,6 +30,12 @@ $ yarn lint
 ```
 
 值得说明的是，微前端作为概念对于不同人承载了不同的考量，其实现方式、落地路径也是见仁见智，若有不妥，敬请指教。
+
+## Tips
+
+1. 因为有指定 Windows 平台的依赖包存在，因此在 `*nix` 系统中运行 yanr 系列命令会报 incompatible platform 的错误。解决方法：在命令中加入 --ignore-platform 选项。
+
+2. 为了解决 Windows 平台上的应用拖动问题，使用了 `-webkit-app-region` CSS 属性，这也导致了继承了该规则的元素无法响应点击事件。解决方法：不需要响应拖动的元素设置 `-webkit-app-region: no-drag;`
 
 ## Windows XP
 

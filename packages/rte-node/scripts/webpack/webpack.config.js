@@ -20,5 +20,4 @@ const config = merge(
   },
 );
 
-console.log(config);
 module.exports = config;

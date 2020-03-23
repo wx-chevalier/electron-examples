@@ -1,0 +1,25 @@
+appId: com.biz
+productName: Biz App
+artifactName: ${productName}-${version}.${ext}
+extraResources: extra/
+files:
+  - 'public/icon.ico'
+  - 'package.json'
+  - 'build'
+  - 'build-main'
+  - '!node_modules/'
+  - '!build/**/*.map'
+  - '!build-main/**/*.map'
+win:
+  requestedExecutionLevel: requireAdministrator
+nsis:
+  oneClick: false
+  perMachine: true
+  allowToChangeInstallationDirectory: true
+  installerLanguages: zh-CN
+  language: 2052
+  menuCategory: Biz App
+  deleteAppDataOnUninstall: true
+publish:
+  provider: generic
+  url: http://tool.bizapp
