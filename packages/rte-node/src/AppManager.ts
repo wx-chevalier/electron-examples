@@ -35,6 +35,9 @@ export class AppManager {
         frame: false,
         resizable: false,
         show: false,
+        webPreferences: {
+          nodeIntegration: true,
+        },
       }));
       window.once('ready-to-show', () => {
         window.show();

@@ -13,6 +13,8 @@ const extraDir = process.env.DEV
   ? path.join(__dirname, '../../extra')
   : path.join(exeDir, './resources/extra');
 
+export const sayHello = () => 'Hello';
+
 export const searchLocation: R.searchLocationFunc = async (
   rPath: string,
   exe: string,

@@ -6,6 +6,7 @@ import log from 'electron-log';
 import * as R from 'rte-core';
 
 import { AppManager } from './AppManager';
+import { sayHello } from './provider';
 
 if (process.env.NODE_ENV !== 'production') {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -21,7 +22,10 @@ declare const global: {
   searchLocation: R.searchLocationFunc;
   run: R.runFunc;
   download: R.downloadFunc;
+  sayHello: R.sayHelloFunc;
 };
+
+global.sayHello = sayHello;
 
 const url =
   process.env.ELECTRON_START_URL || `file://${__dirname}/../build/index.html`;

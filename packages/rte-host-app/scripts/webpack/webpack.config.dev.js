@@ -14,6 +14,7 @@ const config = merge(devConfig, themeConfig, {
   },
   devServer: {
     contentBase: path.resolve(__dirname, '../../public'),
+    hot: false,
   },
 });
 

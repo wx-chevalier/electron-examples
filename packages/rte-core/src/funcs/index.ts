@@ -7,3 +7,4 @@ export type searchLocationFunc = (
 export type runFunc = (exePath: string, uninstall?: boolean) => void;
 export type downloadFunc = (product: InstallableApp) => void;
 export type readCALockFunc = () => Promise<{ name: string; key: string }>;
+export type sayHelloFunc = () => string;

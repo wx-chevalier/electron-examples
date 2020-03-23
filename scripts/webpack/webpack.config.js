@@ -3,6 +3,7 @@ module.exports = require('@wx-fc/webpack-config')({
     'primary-color': '#5d4bff',
   },
   extendedBaseConfig: {
+    target: 'electron-renderer',
     module: {
       rules: [
         // svg 的加载交于应用自身决定
