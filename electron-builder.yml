@@ -10,10 +10,8 @@ files:
   - '!**/*.map'
 mac:
   target: pkg
-  asar: false
 win:
   target: nsis
-  asar: false
   requestedExecutionLevel: requireAdministrator
 nsis:
   oneClick: false

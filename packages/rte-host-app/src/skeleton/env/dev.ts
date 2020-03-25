@@ -1,5 +1,7 @@
 import MobileDetect from 'mobile-detect';
 
+window.gConfig = {};
+
 // 如果是在本地开发，则默认为开发环境服务器
 export const HOST = __DEV__
   ? 'https://api.unionfab.com'
