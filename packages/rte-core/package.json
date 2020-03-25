@@ -38,28 +38,28 @@
     "ueact-utils": "^0.2.4"
   },
   "devDependencies": {
-    "@wx-fc/app-config": "^0.4.0",
+    "@m-fe/app-config": "^0.4.3",
     "cross-env": "^6.0.3",
     "webpack": "^4.41.2"
   },
   "browserslist": [
-    "extends @wx-fc/browserslist-config"
+    "extends @m-fe/browserslist-config"
   ],
   "commitlint": {
     "extends": [
-      "@wx-fc"
+      "@m-fe"
     ]
   },
-  "prettier": "@wx-fc/prettier-config/semi",
+  "prettier": "@m-fe/prettier-config/semi",
   "remarkConfig": {
     "plugins": [
-      "@wx-fc/remark-config"
+      "@m-fe/remark-config"
     ]
   },
   "stylelint": {
     "extends": [
-      "@wx-fc/stylelint-config",
-      "@wx-fc/stylelint-config/modules"
+      "@m-fe/stylelint-config",
+      "@m-fe/stylelint-config/modules"
     ],
     "rules": {
       "font-family-no-missing-generic-family-keyword": null,

@@ -1,11 +1,23 @@
-module.exports = require('@wx-fc/webpack-config')({
+module.exports = require('@m-fe/webpack-config')({
   themeVars: {
     'primary-color': '#5d4bff',
   },
   extendedBaseConfig: {
     target: 'electron-renderer',
+    output: { publicPath: './' },
     module: {
       rules: [
+        {
+          test: /\.s[ac]ss$/i,
+          use: [
+            // Creates `style` nodes from JS strings
+            'style-loader',
+            // Translates CSS into CommonJS
+            'css-loader',
+            // Compiles Sass to CSS
+            'sass-loader',
+          ],
+        },
         // svg 的加载交于应用自身决定
         {
           test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,

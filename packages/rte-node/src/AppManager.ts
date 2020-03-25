@@ -32,9 +32,9 @@ export class AppManager {
       const window = (this.mainWindow = new BrowserWindow({
         width: 900,
         height: 600,
-        frame: false,
-        resizable: false,
+        resizable: true,
         show: false,
+        movable: true,
         webPreferences: {
           nodeIntegration: true,
         },
@@ -58,7 +58,7 @@ export class AppManager {
   initTray() {
     // 创建系统托盘图标
     this.app.on('ready', () => {
-      const iconPath = path.join(__dirname, './assets/icon.ico');
+      const iconPath = path.join(__dirname, './icon.ico');
       try {
         const tray = (this.tray = new Tray(iconPath));
         const contextMenu = Menu.buildFromTemplate([

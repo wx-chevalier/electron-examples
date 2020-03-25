@@ -1,0 +1,80 @@
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  min-width: 900px;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  grid-template-rows: 100%;
+  grid-template-areas: 'sidebar content';
+
+  .update-mask {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    padding: 0 180px;
+
+    &.flex-container {
+      flex-direction: column;
+    }
+
+    .ant-progress-text {
+      color: #fff;
+    }
+
+    .update-tip {
+      color: #fff;
+      font-size: 22px;
+    }
+  }
+
+  .side-bar {
+    position: relative;
+    grid-area: sidebar;
+    background-color: #2e72b8;
+    overflow: hidden;
+
+    .logo {
+      width: 60px;
+      height: 94px;
+      margin: 30px auto 23px auto;
+      background-image: url('../../../../assets/logo_u_white.svg');
+      background-size: 100% 100%;
+    }
+
+    .version {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      color: #fff;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 200;
+    }
+  }
+
+  .content {
+    grid-area: content;
+  }
+
+  .toolbar-icon {
+    margin-right: 5px;
+    transition: color 0.2s ease;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.anticon {
+  font-size: 17px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

@@ -1,16 +1,19 @@
 appId: com.biz
+buildVersion: 0.0.1
 productName: Biz App
 artifactName: ${productName}-${version}.${ext}
 extraResources: extra/
+directories:
+  output: './out'
 files:
-  - 'public/icon.ico'
-  - 'package.json'
-  - 'build'
-  - 'build-main'
-  - '!node_modules/'
-  - '!build/**/*.map'
-  - '!build-main/**/*.map'
+  - '**/*'
+  - '!**/*.map'
+mac:
+  target: pkg
+  asar: false
 win:
+  target: nsis
+  asar: false
   requestedExecutionLevel: requireAdministrator
 nsis:
   oneClick: false

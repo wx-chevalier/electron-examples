@@ -5,8 +5,8 @@ import log from 'electron-log';
 
 import * as R from 'rte-core';
 
+import { getVersion } from './provider';
 import { AppManager } from './AppManager';
-import { sayHello } from './provider';
 
 if (process.env.NODE_ENV !== 'production') {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -22,12 +22,12 @@ declare const global: {
   searchLocation: R.searchLocationFunc;
   run: R.runFunc;
   download: R.downloadFunc;
-  sayHello: R.sayHelloFunc;
+  getVersion: R.getVersionFunc;
 };
 
-global.sayHello = sayHello;
+global.getVersion = getVersion;
 
 const url =
-  process.env.ELECTRON_START_URL || `file://${__dirname}/../build/index.html`;
+  process.env.ELECTRON_START_URL || `file://${__dirname}/assets/index.html`;
 const appManager = new AppManager(app, url);
 appManager.initApp();

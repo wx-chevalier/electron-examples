@@ -18,7 +18,7 @@ $ git clone https://github.com/FE-Kits/m-fe-rte
 $ yarn global add npm-check-updates npm-run-all copyfiles cross-env
 
 # 为各个子项目安装依赖，以及链接各个子项目
-$ ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ ELECTRON_CUSTOM_DIR=8.1.1 yarn install --registry https://registry.npm.taobao.org/
+$ ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ ELECTRON_CUSTOM_DIR=8.2.0 yarn install --registry https://registry.npm.taobao.org/
 
 # 启用 Web App & Node 的开发服务器
 $ yarn run dev
@@ -27,6 +27,12 @@ $ yarn start
 
 # 执行 Lint 操作
 $ yarn lint
+
+# 构建
+# 构建应用程序代码
+$ npm run build
+# 构建对应的 Windows 系统发布包
+$ npm run build:exe
 ```
 
 值得说明的是，微前端作为概念对于不同人承载了不同的考量，其实现方式、落地路径也是见仁见智，若有不妥，敬请指教。

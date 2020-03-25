@@ -1,49 +1,38 @@
 {
   "name": "rte-node",
   "version": "0.0.1",
-  "description": "Pre-configured boilerplate for Electron + React + TypeScript",
+  "description": "Pre-configured boilerplate for Electron, React, TypeScript",
   "main": "./build/index.js",
   "scripts": {
     "start": "npm run start:dev-server",
     "start:main": "cross-env ELECTRON_START_URL=http://localhost:8080 electron ./build/index.js",
     "start:dev-server": "rimraf build && cross-env NODE_ENV=development webpack --config ./scripts/webpack/webpack.config.js --watch --progress --colors",
-    "build:prod": "rimraf build && cross-env NODE_ENV=production webpack --config ./scripts/webpack/webpack.config.js --progress --colors -p",
     "test": "mocha -r ts-node/register -r tsconfig-paths/register \"test/**/*.ts\"",
-    "build:win": "electron-builder build --win --x64",
-    "build:mac": "electron-builder build --mac --x64"
-  },
-  "build": {
-    "appId": "com.electron_boilerplate",
-    "productName": "Electron+React+TypeScript Boilerplate",
-    "directories": {
-      "app": "./build/",
-      "output": "./out/"
-    },
-    "mac": {
-      "target": "pkg"
-    },
-    "win": {
-      "target": "nsis",
-      "asar": false
-    },
-    "buildVersion": "1.0.0"
+    "build": "rimraf build && cross-env NODE_ENV=production webpack --config ./scripts/webpack/webpack.config.js --progress --colors -p",
+    "clean": "rimraf build",
+    "lint": "run-p lint:*",
+    "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,md,ts,tsx -f friendly --max-warnings 10",
+    "lint:ts": "tslint -p . -t stylish",
+    "lint:tsc": "tsc -p tsconfig.json --incremental false --noEmit"
   },
   "author": "wx-chevalier@github",
   "license": "MIT",
   "dependencies": {
     "@ravshansbox/browser-crypto": "^1.0.0",
-    "electron-log": "^4.1.0",
     "electron-debug": "^3.0.1",
+    "electron-log": "^4.1.0",
     "electron-updater": "^4.2.5"
   },
   "devDependencies": {
-    "@wx-fc/app-config": "^0.3.9",
+    "@m-fe/app-config": "^0.4.3",
     "acorn": "^7.1.1",
     "ajv": "^6.12.0",
+    "babel-loader": "^8.1.0",
     "cache-loader": "^4.1.0",
     "copy-pkg-json-webpack-plugin": "^0.0.38",
+    "core-js": "^3.6.4",
     "cross-env": "^7.0.2",
-    "electron": "^8.1.1",
+    "electron": "8.2.0",
     "electron-builder": "^22.4.0",
     "eslint": "^6.8.0",
     "npm-run-all": "^4.1.5",

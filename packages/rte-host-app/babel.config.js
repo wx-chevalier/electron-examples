@@ -1,7 +1,7 @@
 module.exports = {
   presets: [
     [
-      '@wx-fc',
+      '@m-fe',
       {
         import: true,
         react: true,
@@ -9,5 +9,4 @@ module.exports = {
       },
     ],
   ],
-  plugins: [['import', { libraryName: 'antd-mobile', style: true }]],
 };
