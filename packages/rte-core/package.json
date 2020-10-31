@@ -4,7 +4,7 @@
   "description": "rte-core",
   "repository": {
     "type": "git",
-    "url": "https://github.com/FE-Kits/fe-boilerplates"
+    "url": "https://github.com/wx-chevalier/fe-boilerplates"
   },
   "author": "wx-chevalier@github",
   "license": "MIT",
@@ -29,10 +29,10 @@
     "lint:es": "cross-env PARSER_NO_WATCH=true eslint . --cache --ext js,md,ts,tsx -f friendly --max-warnings 10",
     "lint:ts": "tslint -p . -t stylish",
     "lint:tsc": "tsc -p tsconfig.json --incremental false --noEmit",
+    "prepublish": "npm run clean:r",
     "test": "jest --config ./scripts/jest/jest.config.js",
     "test:cov": "npm run cleanCov && npm test -- --coverage",
-    "test:watch": "npm test -- --watch",
-    "prepublish": "npm run clean:r"
+    "test:watch": "npm test -- --watch"
   },
   "dependencies": {
     "ueact-utils": "^0.2.4"
